@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Refurbished iPhones</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins;
+background:#0f0f10;
+color:white;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:25px;
+border-bottom:1px solid #222;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h2{
+font-size:40px;
+}
+
+/* PRODUCTS */
+
+.products{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding:40px 80px;
+
+}
+
+/* CARD */
+
+.card{
+
+background:#1a1a1d;
+border-radius:15px;
+padding:18px;
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+transition:0.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px) scale(1.03);
+
+}
+
+.card img{
+
+width:100%;
+border-radius:10px;
+
+}
+
+.discount{
+
+background:#ff3b30;
+padding:5px 10px;
+font-size:12px;
+border-radius:6px;
+
+}
+
+.oldprice{
+
+text-decoration:line-through;
+color:#888;
+
+}
+
+.price{
+
+color:#4cd964;
+font-size:20px;
+font-weight:600;
+
+}
+
+.advance{
+
+color:#ffcc00;
+font-size:13px;
+
+}
+
+.stock{
+
+color:#ff9500;
+font-size:13px;
+
+}
+
+.timer{
+
+color:#00d1ff;
+font-size:13px;
+
+}
+
+/* SCROLL ANIMATION */
+
+.fade{
+
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+
+}
+
+.fade.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+footer{
+
+text-align:center;
+padding:25px;
+border-top:1px solid #222;
+color:#aaa;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Refurbished iPhone Store</h1>
+
+</header>
+
+<section class="hero fade">
+
+<h2>Premium Refurbished iPhones</h2>
+<p>Quality Checked • Limited Stock • Special Discounts</p>
+
+</section>
+
+<section class="products fade" id="productContainer"></section>
+
+<footer>
+
+<p>Premium Refurbished Devices</p>
+
+</footer>
+
+<script>
+
+/* PRODUCTS */
+
+const products=[
+
+{
+name:"iPhone 11",
+image:"images/IPhone11.jpg",
+oldPrice:35000,
+price:27000,
+advance:20000,
+stock: 3
+},
+
+{
+name:"iPhone 11 Pro",
+image:"images/IPhone11pro.jpg",
+oldPrice:47999,
+price:38000,
+advance:30000,
+stock:4
+},
+
+{
+name:"iPhone 11 Pro Max",
+image:"images/IPhone11ProMax.jpg",
+oldPrice:51687,
+price:43000,
+advance:33000,
+stock:1
+},
+
+{
+name:"iPhone 12",
+image:"images/IPhone12.jpg",
+oldPrice:50574,
+price:43000,
+advance:33000,
+stock:6
+},
+
+{
+name:"iPhone 12 Mini",
+image:"images/IPhone12Mini.jpg",
+oldPrice:45582,
+price:37000,
+advance:27000,
+stock:3
+},
+
+{
+name:"iPhone 12 Pro",
+image:"images/IPhone12Pro.jpg",
+oldPrice:57000,
+price:50000,
+advance:41000,
+stock:3
+},
+
+{
+name:"iPhone 12 Pro Max",
+image:"images/IPhone12ProMax.jpg",
+oldPrice:55000,
+price:50000,
+advance:41000,
+stock:5
+},
+
+{
+name:"iPhone 13",
+image:"images/iphone13.jpg",
+oldPrice:49999,
+price:39999,
+advance:35000,
+stock:8
+},
+
+{
+name:"iPhone 13 Mini",
+image:"images/iphone13mini.jpg",
+oldPrice:51000,
+price:45000,
+advance:35000,
+stock:9
+},
+
+{
+name:"iPhone 13 Pro",
+image:"images/iphone13pro.jpg",
+oldPrice:78000,
+price:63000,
+advance:50000,
+stock:5
+},
+
+{
+name:"iPhone 13 Pro Max",
+image:"images/iphone13promax.jpg",
+oldPrice:94789,
+price:70000,
+advance:55000,
+stock:1
+},
+
+{
+name:"iPhone 14",
+image:"images/iphone14.jpg",
+oldPrice:63489,
+price:55000,
+advance:45000,
+stock:6
+},
+
+{
+name:"iPhone 14 Plus",
+image:"images/iphone14plus.jpg",
+oldPrice:62999,
+price:52999,
+advance:41000,
+stock:7
+},
+
+{
+name:"iPhone 14 Pro",
+image:"images/iphone14pro.jpg",
+oldPrice:90000,
+price:74000,
+advance:58000,
+stock:1
+},
+
+{
+name:"iPhone 14 Pro Max",
+image:"images/iphone14promax.jpg",
+oldPrice:92000,
+price:83000,
+advance:70000,
+stock:1
+},
+
+{
+name:"iPhone 15",
+image:"images/iphone15.jpg",
+oldPrice:93679,
+price:80000,
+advance:65000,
+stock:8
+},
+
+{
+name:"iPhone 15 Plus",
+image:"images/iphone15plus.jpg",
+oldPrice: 90275,
+price:83000,
+advance:70000,
+stock:7
+},
+
+{
+name:"iPhone 15 Pro",
+image:"images/iphone15pro.jpg",
+oldPrice:100000,
+price:90000,
+advance:75000,
+stock:3
+},
+
+{
+name:"iPhone 15 Pro Max",
+image:"images/iphone15promax.jpg",
+oldPrice:130000,
+price:110000,
+advance:95000,
+stock:1
+}
+
+]
+
+const container=document.getElementById("productContainer")
+products.forEach((p,i)=>{
+
+const card=document.createElement("div")
+card.className="card"
+
+card.innerHTML= `
+<div>
+
+<span class="discount">Limited Offer</span>
+
+<img src="${p.image}">
+
+<h3>${p.name}</h3>
+
+<p class="oldprice">₹${p.oldPrice}</p>
+
+<p class="price" id="price${i}">₹${p.price}</p>
+
+<p class="advance">Advance to Order: ₹${p.advance}</p>
+
+<p class="stock">Only ${p.stock} left</p>
+
+<p class="timer" id="timer${i}"></p>
+</div>
+
+`;
+
+
+container.appendChild(card)
+
+})
+
+/* TIMER */
+
+const endTime=new Date("March 13, 2026 16:00:00").getTime();
+
+function updateTimer(){
+
+const now=new Date().getTime()
+
+const distance=endTime-now
+
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60))
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60))
+const seconds=Math.floor((distance%(1000*60))/1000)
+
+products.forEach((p,i)=>{
+
+document.getElementById("timer"+i).innerHTML=
+"Discount ends in "+hours+"h "+minutes+"m "+seconds+"s"
+
+})
+
+if(distance<0){
+
+products.forEach((p,i)=>{
+
+document.getElementById("price"+i).innerHTML="₹"+p.oldPrice
+
+document.getElementById("timer"+i).style.display="none"
+
+})
+
+clearInterval(interval)
+
+}
+
+}
+
+const interval=setInterval(updateTimer,1000)
+
+/* SCROLL ANIMATION */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+})
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
+
+</body>
+
+</html>
