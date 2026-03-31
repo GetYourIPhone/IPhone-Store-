@@ -1,179 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Refurbished iPhones</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins;
+background:#0f0f10;
+color:white;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:25px;
+border-bottom:1px solid #222;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h2{
+font-size:40px;
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding:40px 80px;
+}
+
+/* CARD */
+
+.card{
+background:#1a1a1d;
+border-radius:15px;
+padding:18px;
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+transition:0.35s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.discount{
+background:#ff3b30;
+padding:5px 10px;
+font-size:12px;
+border-radius:6px;
+}
+
+.oldprice{
+text-decoration:line-through;
+color:#888;
+}
+
+.price{
+color:#4cd964;
+font-size:20px;
+font-weight:600;
+}
+
+.advance{
+color:#ffcc00;
+font-size:13px;
+}
+
+.stock{
+color:#ff9500;
+font-size:13px;
+}
+
+.timer{
+color:#00d1ff;
+font-size:13px;
+}
+
+/* SCROLL ANIMATION */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+footer{
+text-align:center;
+padding:25px;
+border-top:1px solid #222;
+color:#aaa;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Refurbished iPhone Store</h1>
+</header>
+
+<section class="hero fade">
+<h2>Premium Refurbished iPhones</h2>
+<p>Quality Checked • Limited Stock • Special Discounts</p>
+</section>
+
+<section class="products fade" id="productContainer"></section>
+
+<footer>
+<p>Premium Refurbished Devices</p>
+</footer>
+
 <script>
 
 /* PRODUCTS */
 
 const products=[
 
-{
-name:"iPhone 11",
-image:"IPhone11.jpg",
-oldPrice:30000,
-price:22500,
-advance:14700,
-stock: 3
-},
-
-{
-name:"iPhone 11 Pro",
-image:"IPhone11pro.jpg",
-oldPrice:87877,
-price:30000,
-advance:20199,
-stock:4
-},
-
-{
-name:"iPhone 11 Pro Max",
-image:"IPhone11ProMax.jpg",
-oldPrice:54800,
-price:32000,
-advance:22300,
-stock:1
-},
-
-{
-name:"iPhone 12",
-image:"IPhone12.jpg",
-oldPrice:54500,
-price:30000,
-advance:18899,
-stock:6
-},
-
-{
-name:"iPhone 12 Mini",
-image:"IPhone12Mini.jpg",
-oldPrice:43700,
-price:28000,
-advance:18000,
-stock:3
-},
-
-{
-name:"iPhone 12 Pro",
-image:"IPhone12Pro.jpg",
-oldPrice:78300,
-price:46000,
-advance:31000,
-stock:3
-},
-
-{
-name:"iPhone 12 Pro Max",
-image:"IPhone12ProMax.jpg",
-oldPrice:88800,
-price:45000,
-advance:34700,
-stock:5
-},
-
-{
-name:"iPhone 13",
-image:"IPhone13.jpg",
-oldPrice:58800,
-price:37300,
-advance:27300,
-stock:8
-},
-
-{
-name:"iPhone 13 Mini",
-image:"IPhone13Mini.jpg",
-oldPrice:66800,
-price:41000,
-advance:25800,
-stock:9
-},
-
-{
-name:"iPhone 13 Pro",
-image:"IPhone13Pro.jpg",
-oldPrice:103000,
-price:63000,
-advance:40300,
-stock:5
-},
-
-{
-name:"iPhone 13 Pro Max",
-image:"IPhone13ProMax.jpg",
-oldPrice:94789,
-price:70000,
-advance:50000,
-stock:1
-},
-
-{
-name:"iPhone 14",
-image:"IPhone14.jpg",
-oldPrice:63489,
-price:40000,
-advance:29500,
-stock:6
-},
-
-{
-name:"iPhone 14 Plus",
-image:"IPhone14Plus.jpg",
-oldPrice:80000,
-price:45000,
-advance:33000,
-stock:7
-},
-
-{
-name:"iPhone 14 Pro",
-image:"IPhone14Pro.jpg",
-oldPrice:118000,
-price:70000,
-advance:50700,
-stock:1
-},
-
-{
-name:"iPhone 14 Pro Max",
-image:"IPhone14ProMax.jpg",
-oldPrice:133000,
-price:75000,
-advance:53700,
-stock:1
-},
-
-{
-name:"iPhone 15",
-image:"IPhone15.jpg",
-oldPrice:61000,
-price:55000,
-advance:40000,
-stock:8
-},
-
-{
-name:"iPhone 15 Plus",
-image:"IPhone15Plus.jpg",
-oldPrice: 70000,
-price:55000,
-advance:43300,
-stock:7
-},
-
-{
-name:"iPhone 15 Pro",
-image:"IPhone15Pro.jpg",
-oldPrice:135000,
-price:85000,
-advance:63000,
-stock:3
-},
-
-{
-name:"iPhone 15 Pro Max",
-image:"IPhone15ProMax.jpg",
-oldPrice:160000,
-price:100000,
-advance:72700,
-stock:1
-}
+{name:"iPhone 11",image:"IPhone11.jpg",oldPrice:30000,price:22500,advance:14700,stock:3},
+{name:"iPhone 11 Pro",image:"IPhone11pro.jpg",oldPrice:87877,price:30000,advance:20199,stock:4},
+{name:"iPhone 11 Pro Max",image:"IPhone11ProMax.jpg",oldPrice:54800,price:32000,advance:22300,stock:1},
+{name:"iPhone 12",image:"IPhone12.jpg",oldPrice:54500,price:30000,advance:18899,stock:6},
+{name:"iPhone 12 Mini",image:"IPhone12Mini.jpg",oldPrice:43700,price:28000,advance:18000,stock:3},
+{name:"iPhone 12 Pro",image:"IPhone12Pro.jpg",oldPrice:78300,price:46000,advance:31000,stock:3},
+{name:"iPhone 12 Pro Max",image:"IPhone12ProMax.jpg",oldPrice:88800,price:45000,advance:34700,stock:5},
+{name:"iPhone 13",image:"IPhone13.jpg",oldPrice:58800,price:37300,advance:27300,stock:8},
+{name:"iPhone 13 Mini",image:"IPhone13Mini.jpg",oldPrice:66800,price:41000,advance:25800,stock:9},
+{name:"iPhone 13 Pro",image:"IPhone13Pro.jpg",oldPrice:103000,price:63000,advance:40300,stock:5},
+{name:"iPhone 13 Pro Max",image:"IPhone13ProMax.jpg",oldPrice:94789,price:70000,advance:50000,stock:1},
+{name:"iPhone 14",image:"IPhone14.jpg",oldPrice:63489,price:40000,advance:29500,stock:6},
+{name:"iPhone 14 Plus",image:"IPhone14Plus.jpg",oldPrice:80000,price:45000,advance:33000,stock:7},
+{name:"iPhone 14 Pro",image:"IPhone14Pro.jpg",oldPrice:118000,price:70000,advance:50700,stock:1},
+{name:"iPhone 14 Pro Max",image:"IPhone14ProMax.jpg",oldPrice:133000,price:75000,advance:53700,stock:1},
+{name:"iPhone 15",image:"IPhone15.jpg",oldPrice:61000,price:55000,advance:40000,stock:8},
+{name:"iPhone 15 Plus",image:"IPhone15Plus.jpg",oldPrice:70000,price:55000,advance:43300,stock:7},
+{name:"iPhone 15 Pro",image:"IPhone15Pro.jpg",oldPrice:135000,price:85000,advance:63000,stock:3},
+{name:"iPhone 15 Pro Max",image:"IPhone15ProMax.jpg",oldPrice:160000,price:100000,advance:72700,stock:1}
 
 ]
 
@@ -184,7 +175,7 @@ products.forEach((p,i)=>{
 const card=document.createElement("div")
 card.className="card"
 
-card.innerHTML= `
+card.innerHTML=`
 <div>
 
 <span class="discount">Limited Offer</span>
@@ -202,8 +193,9 @@ card.innerHTML= `
 <p class="stock">Only ${p.stock} left</p>
 
 <p class="timer" id="timer${i}"></p>
+
 </div>
-`;
+`
 
 container.appendChild(card)
 
@@ -223,7 +215,6 @@ if(distance <= 0){
 products.forEach((p,i)=>{
 
 document.getElementById("price"+i).innerHTML="₹"+p.oldPrice
-
 document.getElementById("timer"+i).style.display="none"
 
 })
@@ -264,7 +255,9 @@ observer.observe(el)
 
 </script>
 
+</body>
 
+</html>
 
 
 
